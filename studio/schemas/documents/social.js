@@ -9,18 +9,18 @@ export default {
       name: "channel",
       type: "string",
       options: {
-        list: ["twitter", "instagram", "linkedin"],
+        list: ["twitter", "instagram", "linkedin", "facebook"],
       },
     },
     {
-      name: "text",
-      type: "text",
+      name: "link",
+      type: "url",
     },
-    {
-      name: "attachment",
-      type: "image",
-      title: "Attachment",
-      options: { hotspot: true },
-    },
+    // {
+    //   name: "attachment",
+    //   type: "image",
+    //   title: "Attachment",
+    //   options: { hotspot: true },
+    // },
   ],
 };

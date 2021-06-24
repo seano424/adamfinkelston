@@ -1,6 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
 import { MdWeb, MdSettings, MdWhatshot, MdLooks } from "react-icons/md";
-import ads from "./ads";
+// import ads from "./ads";
 import categories from "./categories";
 import person from "./person";
 
@@ -18,18 +18,27 @@ const hiddenDocTypes = (listItem) =>
     "sampleProject",
     "vendor",
     "siteSettings",
-    "ad",
+    // "ad",
     "page",
     "product",
     "route",
     "siteConfig",
+    "landingPage",
+    "aboutPage",
+    "art",
+    "popup",
+    "brand",
+    "swag",
   ].includes(listItem.getId());
 
 export default () =>
   S.list()
     .title("Pulp Inc.")
     .items([
+      S.documentTypeListItem("art").title("Artwork"),
       S.documentTypeListItem("product").title("Products"),
+      S.documentTypeListItem("landingPage").title("Landing Page"),
+      S.documentTypeListItem("aboutPage").title("About Page"),
       S.listItem()
         .title("Website")
         .icon(MdWeb)
@@ -46,11 +55,10 @@ export default () =>
                     .schemaType("siteConfig")
                     .documentId("siteConfig")
                 ),
-              S.documentTypeListItem("route").title("Routes"),
-              S.documentTypeListItem("page").title("Pages"),
+              // S.documentTypeListItem("route").title("Routes"),
+              // S.documentTypeListItem("page").title("Pages"),
             ])
         ),
-      ads,
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);
 

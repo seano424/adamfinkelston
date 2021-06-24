@@ -1,11 +1,11 @@
 {
   "root": true,
   "api": {
-    "projectId": "placeholder",
-    "dataset": "placeholder"
+    "projectId": "ukels9pu",
+    "dataset": "production"
   },
   "project": {
-    "name": "Next.JS E-commerce example",
+    "name": "Adam Finkelston's Studio",
     "basePath": "/studio"
   },
   "plugins": [
@@ -14,7 +14,10 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "@sanity/color-input"
+    "@sanity/color-input",
+    "media",
+    "media-library",
+    "color-picker"
   ],
   "env": {
     "development": {
@@ -31,6 +34,10 @@
     {
       "implements": "part:@sanity/desk-tool/structure",
       "path": "./src/deskStructure"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/image/asset-sources",
+      "path": "./parts/assetSources.js"
     }
   ]
 }
