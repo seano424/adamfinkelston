@@ -28,7 +28,7 @@
     "@sanity/cli": "^2.12.2",
     "autoprefixer": "^10.2.6",
     "concurrently": "^5.3.0",
-    "lerna": "^3.22.1",
+    "lerna": "^3.10.8",
     "postcss": "^8.3.5",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
