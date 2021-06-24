@@ -1,41 +1,41 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Image from "next/image";
 import { imageBuilder, urlFor } from "lib/sanity";
 import Link from "next/link";
-import Lightbox from "react-image-lightbox";
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  EmailShareButton,
-  PinterestShareButton,
-} from "react-share";
-import {
-  FacebookIcon,
-  TwitterIcon,
-  PinterestIcon,
-  EmailIcon,
-} from "react-share";
+// import Lightbox from "react-image-lightbox";
+// import {
+//   FacebookShareButton,
+//   TwitterShareButton,
+//   EmailShareButton,
+//   PinterestShareButton,
+// } from "react-share";
+// import {
+//   FacebookIcon,
+//   TwitterIcon,
+//   PinterestIcon,
+//   EmailIcon,
+// } from "react-share";
 
 export default function LightboxModal({ gallery }) {
   const { artPieces, title, category, slug } = gallery.results[0];
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [open, toggleOpen] = useState(false);
-  const images = artPieces.map((a) => a.asset);
+  // const [photoIndex, setPhotoIndex] = useState(0);
+  // const [open, toggleOpen] = useState(false);
+  // const images = artPieces.map((a) => a.asset);
 
-  const handleContext = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
+  // const handleContext = (e) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  // };
 
-  const handleLightbox = (idx) => {
-    setPhotoIndex(idx);
-    toggleOpen(!open);
-  };
+  // const handleLightbox = (idx) => {
+  //   setPhotoIndex(idx);
+  //   toggleOpen(!open);
+  // };
 
-  const url = `https://www.adamfinkelson.com/${category}/${slug.current}`;
+  // const url = `https://www.adamfinkelson.com/${category}/${slug.current}`;
   return (
     <>
-      {open ? (
+      {/* {open ? (
         <div onContextMenu={handleContext}>
           <Lightbox
             enableZoom={false}
@@ -87,33 +87,33 @@ export default function LightboxModal({ gallery }) {
             }
           />
         </div>
-      ) : (
-        <section className="py-20 px-24 absolute top-0 pt-10 bg-white bg-opacity-95 min-h-screen">
-          <article className="pb-10 flex gap-4 justify-between">
-            <h1 className="font-bold uppercase tracking-wider">{title}</h1>
-            <div className="flex gap-4">
-              <Link href={`/${category}`}>
-                <a className="underline">Back to {category}</a>
-              </Link>
-              <Link href={`/galleries`}>
-                <a className="underline">Back to Galleries</a>
-              </Link>
+      ) : ( */}
+      <section className="py-20 px-24 absolute top-0 pt-10 bg-white bg-opacity-95 min-h-screen">
+        <article className="pb-10 flex gap-4 justify-between">
+          <h1 className="font-bold uppercase tracking-wider">{title}</h1>
+          <div className="flex gap-4">
+            <Link href={`/${category}`}>
+              <a className="underline">Back to {category}</a>
+            </Link>
+            <Link href={`/galleries`}>
+              <a className="underline">Back to Galleries</a>
+            </Link>
+          </div>
+        </article>
+        <article className="grid grid-cols-3 gap-4">
+          {artPieces.map((a, idx) => (
+            <div key={a._key}>
+              <Image
+                src={imageBuilder(a.asset).url()}
+                alt={`${a.title} - Adam Finkelston`}
+                width={500}
+                height={500}
+              />
             </div>
-          </article>
-          <article className="grid grid-cols-3 gap-4">
-            {artPieces.map((a, idx) => (
-              <div onClick={() => handleLightbox(idx)} key={a._key}>
-                <Image
-                  src={imageBuilder(a.asset).url()}
-                  alt={`${a.title} - Adam Finkelston`}
-                  width={500}
-                  height={500}
-                />
-              </div>
-            ))}
-          </article>
-        </section>
-      )}
+          ))}
+        </article>
+      </section>
+      {/* )} */}
     </>
   );
 }

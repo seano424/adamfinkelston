@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import "react-image-lightbox/style.css";
+// import "react-image-lightbox/style.css";
 
 function MyApp({ Component, pageProps }) {
   return (
