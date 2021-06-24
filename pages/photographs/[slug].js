@@ -1,10 +1,11 @@
-import { getAllArtworkWithSlug, getGallery } from "lib/api";
+import { getAllArtworkWithSlug, getGallery, getLandingPage } from "lib/api";
 import Layout from "@/components/Layout";
 import LightboxModal from "@/components/LightboxModal";
 
-export default function Prints({ gallery }) {
+export default function Prints({ gallery, landingPage }) {
+  const { artPieces } = landingPage[0];
   return (
-    <Layout>
+    <Layout artPieces={artPieces}>
       <LightboxModal gallery={gallery} />
     </Layout>
   );
@@ -12,8 +13,9 @@ export default function Prints({ gallery }) {
 
 export async function getStaticProps({ params, preview = false }) {
   const gallery = await getGallery(params.slug, preview);
+  const landingPage = await getLandingPage(preview);
   return {
-    props: { preview, gallery },
+    props: { preview, gallery, landingPage },
     revalidate: 1,
   };
 }

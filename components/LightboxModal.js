@@ -88,7 +88,7 @@ export default function LightboxModal({ gallery }) {
           />
         </div>
       ) : (
-        <section className="py-20 px-24">
+        <section className="py-20 px-24 absolute top-0 pt-10 bg-white bg-opacity-95 min-h-screen">
           <article className="pb-10 flex gap-4 justify-between">
             <h1 className="font-bold uppercase tracking-wider">{title}</h1>
             <div className="flex gap-4">
@@ -100,7 +100,7 @@ export default function LightboxModal({ gallery }) {
               </Link>
             </div>
           </article>
-          <article className="grid grid-cols-4">
+          <article className="grid grid-cols-3 gap-4">
             {artPieces.map((a, idx) => (
               <div onClick={() => handleLightbox(idx)} key={a._key}>
                 <Image
